@@ -1,11 +1,17 @@
 #!/bin/bash
 
-echo "=================================================";
-echo "Platformio - Setup Script for Ubuntu 22.02       ";
-echo "      - Nick Goralka (6/12/22)                   ";
-echo "=================================================";
+RED="\033[0;31m";
+BLUE="\033[34m"
+NOCOLOR="\033[0m";
+GREEN="\033[32m"
 
-echo "
+echo "=================================================================";
+echo -e "${BLUE}Platformio - Setup Script for Ubuntu 22.02       ";
+echo -e "${BLUE}      - Nick Goralka (6/15/22)      ${NOCOLOR}";
+echo "=================================================================";
+
+
+echo -e "${RED}
      \\XXXXXX//
       XXXXXXXX
      //XXXXXX\\                      OOOOOOOOOOOOOOOOOOOO
@@ -23,13 +29,15 @@ echo "
 /                  \\\\\\\\        .:::::::::::::::.
                     \\\\\\\\     .:::::::::::::::::::.
                      \\\\\\\\
+${NOCOLOR}
 "
 
 echo "Please press enter to continue"
 read response;
 
 if [ "$EUID" -ne 0 ]
-	then echo "Error please put on your big boi pants and sudo"
+	then echo -e "${GREEN}Error [-] Need to be root"
+          echo "       - Drive your damm computer like you mean it and sudo"
 	exit
 fi
 
@@ -73,3 +81,5 @@ service udev restart;
 usermod -a -G dialout $USER;
 usermod -a -G plugdev $USER;
 
+# Download Slack
+snap install slack;
