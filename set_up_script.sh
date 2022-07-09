@@ -7,7 +7,7 @@ GREEN="\033[32m"
 
 echo "=================================================================";
 echo -e "${BLUE}Platformio - Setup Script for Ubuntu 22.02   (ver 1.2) ";
-echo -e "${BLUE}      - Nick Goralka (7/9/22)      ${NOCOLOR}";
+echo -e "${BLUE}      - written by Nick Goralka (7/9/22)    ${NOCOLOR}";
 echo "=================================================================";
 
 
@@ -92,13 +92,15 @@ snap install slack;
 # Exit message
 clear;
 
-echo -e "${GREEN} - All dependancies should be installed ${NOCOLOR}";
-echo "         - Open up VSCode and Slack";
-echo "         - Sign into credentials for git";
+echo -e "${GREEN}[-] All dependancies should be installed ${NOCOLOR}";
+echo "Leave this window open and complete the following:";
+echo "         - Open up Slack and sign in";
+echo "         - Open up VSCode and sign into credentials for git";
 echo "         - Install Platformio IDE Extension for VSCode ";
+echo "         - Install Doxygen Documentation Generator Extension for VSCode";
+echo "         - Install GitHub Pull Requests and Issues Extension for VSCode";
+echo "         - Install C/C++ Extension Pack Extension for VSCode";
 echo "         - Run 'sl' in a terminal (steam locamotive command)";
 echo "         - Then you should be ready to go";
 
-echo -e "${BLUE} Press Enter to Exit Script";
-
-read response;
+exit; 
