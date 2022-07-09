@@ -53,7 +53,7 @@ apt-get install python3;
 apt-get install python3-venv;
 apt-get install graphviz;
 apt-get install curl;
-apt-get install sl;
+apt-get install sl; # steam locamotive command
 
 # Install VSCode
 apt-get install wget gpg;
@@ -88,3 +88,17 @@ usermod -a -G plugdev $USER;
 
 # Download Slack
 snap install slack;
+
+# Exit message
+clear;
+
+echo -e "${GREEN} - All dependancies should be installed ${NOCOLOR}";
+echo "         - Open up VSCode and Slack";
+echo "         - Sign into credentials for git";
+echo "         - Install Platformio IDE Extension for VSCode ";
+echo "         - Run 'sl' in a terminal (steam locamotive command)";
+echo "         - Then you should be ready to go";
+
+echo -e "${BLUE} Press Enter to Exit Script";
+
+read response;
