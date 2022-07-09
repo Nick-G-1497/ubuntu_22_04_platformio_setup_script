@@ -71,6 +71,11 @@ wget https://github.com/jgraph/drawio-desktop/releases/download/v19.0.3/drawio-a
 dpkg -i drawio-amd64-19.0.3.deb;
 mv drawio-amd64-19.0.3.deb /tmp/;
 
+# Install Segger SystemView
+wget https://www.segger.com/downloads/systemview/SystemView_Linux_V332_x86_64.deb;
+dpkg -i SystemView_Linux_V332_x86_64.deb;
+mv SystemView_Linux_V332_x86_64.deb /tmp/;
+
 # Abscure python dependancies needed for the debugger
 apt-get install libpython2.7;
 apt-get install libatlas3-base;
