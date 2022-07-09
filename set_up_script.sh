@@ -6,8 +6,8 @@ NOCOLOR="\033[0m";
 GREEN="\033[32m"
 
 echo "=================================================================";
-echo -e "${BLUE}Platformio - Setup Script for Ubuntu 22.02       ";
-echo -e "${BLUE}      - Nick Goralka (6/15/22)      ${NOCOLOR}";
+echo -e "${BLUE}Platformio - Setup Script for Ubuntu 22.02   (ver 1.2) ";
+echo -e "${BLUE}      - Nick Goralka (7/9/22)      ${NOCOLOR}";
 echo "=================================================================";
 
 
@@ -36,8 +36,8 @@ echo "Please press enter to continue"
 read response;
 
 if [ "$EUID" -ne 0 ]
-	then echo -e "${GREEN}Error [-] Need to be root"
-          echo "       - Drive your damm computer like you mean it and sudo"
+	then echo -e "${RED}Error [-] Need to be root"
+          echo -e "${GREEN}      - Drive your damm computer like you mean it and sudo"
 	exit
 fi
 
@@ -53,6 +53,7 @@ apt-get install python3;
 apt-get install python3-venv;
 apt-get install graphviz;
 apt-get install curl;
+apt-get install sl;
 
 # Install VSCode
 apt-get install wget gpg;
@@ -65,6 +66,11 @@ apt install apt-transport-https;
 apt update;
 apt install code; # or code-insiders
 
+# Install drawio
+wget https://github.com/jgraph/drawio-desktop/releases/download/v19.0.3/drawio-amd64-19.0.3.deb;
+dpkg -i drawio-amd64-19.0.3.deb;
+mv drawio-amd64-19.0.3.deb /tmp/;
+
 # Abscure python dependancies needed for the debugger
 apt-get install libpython2.7;
 apt-get install libatlas3-base;
@@ -74,7 +80,6 @@ apt remove brltty;
 
 # Configure udev
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/master/scripts/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules;
-
 service udev restart;
 
 # Make user able to dialout on the USB port
